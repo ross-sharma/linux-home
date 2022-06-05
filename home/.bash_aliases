@@ -4,5 +4,5 @@ alias red='git commit -am red'
 alias gp='git push'
 alias gs='git status'
 alias ga='git add *'
-alias lsa='ls -a'
+alias lsa='ls -A'
 
