@@ -26,8 +26,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
 LH_SRC=~/dev/linux-home
 export LH_SRC
+PATH="$PATH:$LH_SRC/bin"
 
 echo ".profile done"
 

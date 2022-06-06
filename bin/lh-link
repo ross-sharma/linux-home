@@ -1,0 +1,6 @@
+#!/bin/bash
+
+lh-unlink &&
+    cd ~ &&
+    ls -A1 "$LH_SRC/home" | xargs -I@ ln -sv $LH_SRC/home/@
+
