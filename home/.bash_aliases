@@ -8,3 +8,5 @@ alias lsa='ls -A --color=auto'
 
 alias ppa='echo $PATH'
 alias gc='git commit -m '
+alias python='python3'
+
