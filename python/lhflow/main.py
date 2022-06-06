@@ -1,4 +1,4 @@
-def main(args: list[str]) -> NoneType:
+def main(args: list[str]):
     print(f'in main with args {args}')
 
 if __name__ == '__main__':
