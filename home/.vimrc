@@ -43,6 +43,6 @@ set undofile
 " [KEYMAPS]
 nnoremap <F3> :Autoformat<CR>
 nnoremap <F5> :source $MYVIMRC<CR>
-nnoremap <c-s> <esc><esc>:Autoformat<cr>:w<cr>
-inoremap <c-s> <esc><esc>:Autoformat<cr>:w<cr>
+nnoremap <c-s> :w<cr>
+inoremap <c-s> <esc>:w<cr>
 

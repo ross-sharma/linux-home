@@ -27,8 +27,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 
-LH_SRC=~/dev/linux-home
-export LH_SRC
+export DEV_ROOT=~/dev
+export LH_SRC="$DEV_ROOT/linux-home"
 PATH="$PATH:$LH_SRC/bin"
 
 echo ".profile done"
