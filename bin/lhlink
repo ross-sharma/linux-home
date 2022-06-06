@@ -1,6 +1,6 @@
 #!/bin/bash
 
-lh-unlink
+lhunlink
 
 cd ~ &&
     find "$LH_ROOT/home" | tail -n +2 |  xargs -n 1 ln -sv
