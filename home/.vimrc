@@ -17,7 +17,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set clipboard=unnamedplus
-
+set background=dark
 
 " [KEYMAPS]
 nnoremap <F3> :Autoformat<CR>
