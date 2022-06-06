@@ -1,8 +1,11 @@
 #!/bin/bash
 
 cd $LH_SRC
-git add * &&
+git pull &&
+    git add * &&
     git commit -a -m "no message" &&
-    git push
+    git push &&
     git status
+
+echo "Push done."
 
