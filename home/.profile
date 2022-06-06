@@ -28,8 +28,8 @@ fi
 
 
 export DEV_ROOT=~/dev
-export LH_SRC="$DEV_ROOT/linux-home"
-PATH="$PATH:$LH_SRC/bin"
+export LH_ROOT="$DEV_ROOT/linux-home"
+PATH="$PATH:$LH_ROOT/bin"
 
 echo ".profile done"
 

@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ~
-ls -lA | grep ^l | grep $LH_SRC | awk '{print $9}' | xargs -n 1 unlink
+ls -lA | grep ^l | grep $LH_ROOT | awk '{print $9}' | xargs -n 1 unlink
 

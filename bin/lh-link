@@ -3,5 +3,5 @@
 lh-unlink
 
 cd ~ &&
-    find "$LH_SRC/home" | tail -n +2 |  xargs -n 1 ln -sv
+    find "$LH_ROOT/home" | tail -n +2 |  xargs -n 1 ln -sv
 
