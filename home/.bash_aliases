@@ -6,3 +6,5 @@ alias gs='git status'
 alias ga='git add * && git status'
 alias lsa='ls -A --color=auto'
 
+alias ppa='echo $PATH'
+alias gc='git commit -m '
