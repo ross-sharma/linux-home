@@ -3,6 +3,6 @@ alias green='git commit -am green'
 alias red='git commit -am red'
 alias gp='git push'
 alias gs='git status'
-alias ga='git add *'
-alias lsa='ls -A'
+alias ga='git add * && git status'
+alias lsa='ls -A --color=auto'
 
