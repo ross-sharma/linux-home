@@ -1,0 +1,8 @@
+#!/bin/bash
+
+srcdir=~/dev/linux-home/home
+
+$srcdir/../unlink
+cd ~
+ls -A1 "$srcdir" | xargs -I@ ln -sv $srcdir/@ 
+

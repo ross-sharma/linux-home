@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ls -lA ~ | grep ^l | grep /linux-home/home/ | awk '{print $9}' | xargs -I@ unlink ~/@ 
+
