@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd $LH_SRC
+git add * &&
+    git commit -a -m "no message" &&
+    git push
+    git status
+
