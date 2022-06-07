@@ -35,9 +35,11 @@ def print_active_task(tasks: Tasks):
     task = get_active_task(tasks)
     print(f"The active task is now '{task}'")
 
+
 def ensure_task_does_not_exist(task, tasks):
     if task in tasks:
-        raise Exception('Task already exists')
+        raise Exception("Task already exists")
+
 
 def main(args: list[str]) -> int:
     tasks = load_tasks()
