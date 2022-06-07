@@ -23,7 +23,7 @@ def main(args: list[str]) -> int:
     action = args[1]
 
     if action == "list":
-        print(tasks)
+        list_tasks(tasks)
 
     elif action == "pop":
         print("Error: There are no tasks in the stack.")
