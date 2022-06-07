@@ -2,36 +2,36 @@
 
 Check the stack (currently empty):
 
-    $ lhflow list
-
+    $ flow list
+    
 Attempting to pop from empty stack:
 
-    $ lhflow pop
+    $ flow pop
     Error: There are no tasks in the stack.
 
 Push a task onto the stack:
 
-    $ lhflow push "fix the thing"
+    $ flow push "fix the thing"
     Info: The active task is now "fix the thing".
 
-    $ lhflow list
-    1. fix the thing
+    $ flow list
+    1. fix the thing    
 
     
 Push another task onto the stack:
 
-    $ lhflow push "fix the other thing"
+    $ flow push "fix the other thing"
     Info: The active task is now "fix the other thing".
     
-    $ lhflow list
+    $ flow list
     1. fix the other thing
     2. fix the thing
 
 Appending a task to the end of the stack:
 
-    $ lhflow append "improve this thing someday"
+    $ flow append "improve this thing someday"
 
-    $ lhflow list
+    $ flow list
     1. fix the other thing
     2. fix the thing
     3. improve this thing someday
@@ -39,10 +39,10 @@ Appending a task to the end of the stack:
     
 Pop a task:
 
-    $ lhflow pop
+    $ flow pop
     Info: The active task is now "fix the thing".
     
-    $ lhflow list
+    $ flow list
     1. fix the thing
     2. improve this thing someday
 
