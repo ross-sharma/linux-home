@@ -41,7 +41,7 @@ def ensure_task_does_not_exist(task, tasks):
         raise Exception("Task already exists")
 
 
-def main(args: list[str]) -> int:
+def main(args: list[str]):
     tasks = load_tasks()
     action = args[1]
     active_task = get_active_task(tasks)
