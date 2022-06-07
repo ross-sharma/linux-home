@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+import pickle
 
 taskfile = Path("/home/rsh/.tasks")
 
@@ -9,14 +10,16 @@ TaskList = list[Task]
 
 
 def load_tasks() -> TaskList:
-    with open(taskfile) as f:
-        return f.readlines()
+    if not taskfile.is_file():
+        save_tasks([])
+
+    with open(taskfile, "rb") as f:
+        return pickle.load(f)
 
 
 def save_tasks(tasks: TaskList):
-    with open(taskfile, "w") as f:
-        for task in tasks:
-            f.write(f"{task}\n")
+    with open(taskfile, "wb") as f:
+        pickle.dump(tasks, f)
 
 
 def list_tasks(tasks: TaskList):
@@ -36,8 +39,6 @@ def get_active_task(tasks):
 
 
 def main(args: list[str]) -> int:
-    taskfile.touch(exist_ok=True)
-
     exit_code = 0
     tasks = load_tasks()
     action = args[1]
