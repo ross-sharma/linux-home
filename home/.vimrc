@@ -11,13 +11,20 @@ Plugin 'dense-analysis/ale'
 call vundle#end()
 filetype plugin indent on    " required
 
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_definitions_command = "<leader>d"
+
 " [KEYMAPS]
 nnoremap <F1> :!flow<CR>
 nnoremap <F3> :Autoformat<CR>
 nnoremap <F4> <esc>:wq<cr>
 inoremap <F4> <esc>:wq<cr>
 nnoremap <F5> :source $MYVIMRC<CR>
-nnoremap <s-F5> :e $MYVIMRC<CR>
+nnoremap <c-F5> :e $MYVIMRC<CR>
 nnoremap <c-s> <esc>:w<cr>
 inoremap <c-s> <esc>:w<cr>
 nnoremap <c-T> <esc>:terminal<cr>
@@ -26,10 +33,6 @@ inoremap <c-k> <up>
 inoremap <c-j> <down>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_set_highlights = 0
 
 
 " [APPEARANCE]
@@ -65,4 +68,3 @@ endif
 set undodir=~/.vim/undo-dir
 set undofile
 
-let g:jedi#popup_on_dot = 0
