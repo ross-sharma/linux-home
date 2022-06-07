@@ -18,6 +18,8 @@ nnoremap <F5> :source $MYVIMRC<CR>
 nnoremap <s-F5> :e $MYVIMRC<CR>
 nnoremap <c-s> <esc>:w<cr>
 inoremap <c-s> <esc>:w<cr>
+nnoremap <c-T> <esc>:terminal<cr>
+
 
 
 " [APPEARANCE]
