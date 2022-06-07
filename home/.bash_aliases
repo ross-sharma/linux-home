@@ -10,3 +10,4 @@ alias ga='git add * && git status'
 alias lsa='ls -A --color=auto'
 alias ppa='echo $PATH'
 
+alias yellow='git commit -am yellow'

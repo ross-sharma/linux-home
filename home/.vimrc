@@ -23,7 +23,7 @@ inoremap <c-s> <esc>:w<cr>
 " [APPEARANCE]
 syntax enable
 set background=dark
-colorscheme solarized 
+colorscheme default
 
 
 " [PREFERENCES]
