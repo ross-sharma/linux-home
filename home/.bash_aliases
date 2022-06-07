@@ -16,6 +16,7 @@ alias ga='git add * && git status'
 alias gc='no_untracked_files && git commit -m'
 
 alias env-obdev='source $DEV_ROOT/obdev/scripts/setenv'
+alias env-lh='source $LH_ROOT/scripts/setenv'
 
 alias fl='flow list'
 alias fp='flow push'
