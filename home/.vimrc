@@ -9,7 +9,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 filetype plugin indent on    " required
-
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_splits_not_buffers = "bottom"
 
 " [KEYMAPS]
 nnoremap <F1> :!flow<CR>
