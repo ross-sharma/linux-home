@@ -3,8 +3,7 @@
 Check the stack (currently empty):
 
     $ lhflow list
-    Info: The stack is empty.
-   
+
 Attempting to pop from empty stack:
 
     $ lhflow pop

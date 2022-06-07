@@ -1,21 +1,45 @@
 import sys
 
+Task = str
+TaskList = list[Task]
+
+
+def get_tasks() -> TaskList:
+    return ["asdf", "asdfad"]
+
+
+def save_tasks(tasks: TaskList):
+    pass
+
+
+def list_tasks(tasks: TaskList):
+    for count, task in enumerate(tasks):
+        print(f"{count}. {task}")
+
 
 def main(args: list[str]) -> int:
-    print(f"in main with args {args}")
+    exit_code = 0
+    tasks = get_tasks()
     action = args[1]
 
     if action == "list":
-        print("Info: The stack is empty.")
+        print(tasks)
 
-    if action == "pop":
+    elif action == "pop":
         print("Error: There are no tasks in the stack.")
+        exit_code = 1
 
-    if action == "push":
-        title = ' '.join(args[2:])
+    elif action == "push":
+        title = " ".join(args[2:])
+        tasks = [title] + tasks
         print(f"The active task is now '{title}'")
 
-    return 0
+    else:
+        print(f"Unrecognized action: {action}")
+        exit_code = 1
+
+    save_tasks(tasks)
+    return exit_code
 
 
 if __name__ == "__main__":

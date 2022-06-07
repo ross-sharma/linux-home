@@ -1,15 +1,32 @@
+" [PLUGINS]
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-autoformat/vim-autoformat'
+Plugin 'altercation/vim-colors-solarized'
+call vundle#end()
+filetype plugin indent on    " required
+
+
 " [KEYMAPS]
 nnoremap <F3> :Autoformat<CR>
 nnoremap <F4> <esc>:wq<cr>
 inoremap <F4> <esc>:wq<cr>
 nnoremap <F5> :source $MYVIMRC<CR>
+nnoremap <s-F5> :e $MYVIMRC<CR>
 nnoremap <c-s> <esc>:w<cr>
 inoremap <c-s> <esc>:w<cr>
 
 
-" [PREFERENCES]
-colorscheme darkblue
+" [APPEARANCE]
+syntax enable
 set background=dark
+colorscheme solarized 
+
+
+" [PREFERENCES]
 set number
 set relativenumber
 set tabstop=4
@@ -25,7 +42,6 @@ set updatetime=50
 set incsearch
 set cmdheight=2
 
-
 " Use persistent undo history
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
@@ -35,16 +51,4 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 set undodir=~/.vim/undo-dir
 set undofile
-
-
-" [VUNDLE]
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-autoformat/vim-autoformat'
-Plugin 'gruvbox-community/gruvbox'
-call vundle#end()
-filetype plugin indent on    " required
 
