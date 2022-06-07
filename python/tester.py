@@ -1,8 +1,6 @@
 from dataclasses import dataclass
-import os
-import subprocess
 from assertpy import assert_that
-from obdev_utils.common import run_args, get_logger, Args
+from obdev_utils.common import run_args, Args
 
 
 @dataclass
@@ -16,6 +14,8 @@ class CliTest:
 def run_test(test: CliTest):
     result = run_args(test.args)
     assert_that(test.stdout.strip()).is_equal_to(result.stdout.strip())
+    assert_that(test.stderr.strip()).is_equal_to(result.stderr.strip())
+    assert_that(test.exit_code).is_equal_to(result.exit_code)
     # assert test.stderr == result.stderr.decode()
     # assert test.exit_code == result.returncode
 
