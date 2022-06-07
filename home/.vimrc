@@ -7,10 +7,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'dense-analysis/ale'
 call vundle#end()
 filetype plugin indent on    " required
-let g:jedi#popup_on_dot = 0
-let g:jedi#use_splits_not_buffers = "bottom"
 
 " [KEYMAPS]
 nnoremap <F1> :!flow<CR>
@@ -28,12 +27,16 @@ inoremap <c-j> <down>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
 
 
 " [APPEARANCE]
 syntax enable
 set background=dark
-colorscheme default
+" colorscheme solarized
+set t_Co=256
 
 
 " [PREFERENCES]
@@ -62,3 +65,4 @@ endif
 set undodir=~/.vim/undo-dir
 set undofile
 
+let g:jedi#popup_on_dot = 0
