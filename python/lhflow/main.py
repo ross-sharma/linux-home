@@ -51,7 +51,8 @@ def main(args: list[str]) -> int:
         if not tasks:
             print("Error: There are no tasks in the stack.")
         else:
-            tasks.pop(0)
+            task = tasks.pop(0)
+            print(f"Task popped: {task}")
 
     elif action == "push":
         task = " ".join(args[2:])
