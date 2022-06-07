@@ -22,6 +22,11 @@ nnoremap <c-s> <esc>:w<cr>
 inoremap <c-s> <esc>:w<cr>
 nnoremap <c-T> <esc>:terminal<cr>
 
+inoremap <c-k> <up>
+inoremap <c-j> <down>
+inoremap <c-h> <left>
+inoremap <c-l> <right>
+
 
 
 " [APPEARANCE]
