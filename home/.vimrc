@@ -8,6 +8,7 @@ Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'dense-analysis/ale'
+Plugin 'mgedmin/python-imports.vim'
 call vundle#end()
 filetype plugin indent on    " required
 

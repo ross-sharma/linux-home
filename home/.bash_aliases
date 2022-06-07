@@ -25,7 +25,7 @@ alias fa='flow append'
 alias lsa='ls -A --color=auto'
 alias vba='vim ~/.bash_aliases'
 alias sba='source ~/.bash_aliases'
-alias vvc='vim ~/.vimrc'
+alias vrc='vim ~/.vimrc'
 
 echo '.bash_aliases finished.'
 
