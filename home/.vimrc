@@ -6,11 +6,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 filetype plugin indent on    " required
 
 
 " [KEYMAPS]
+nnoremap <F1> :!flow<CR>
 nnoremap <F3> :Autoformat<CR>
 nnoremap <F4> <esc>:wq<cr>
 inoremap <F4> <esc>:wq<cr>
