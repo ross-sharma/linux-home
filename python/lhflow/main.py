@@ -67,6 +67,11 @@ def main(args: list[str]):
         ensure_task_does_not_exist(task, tasks)
         tasks = [task] + tasks
 
+    elif action == "slip":
+        task = " ".join(args[2:])
+        ensure_task_does_not_exist(task, tasks)
+        tasks = tasks[:1] + [task] + tasks[1:]
+        
     elif action == "append":
         task = " ".join(args[2:])
         ensure_task_does_not_exist(task, tasks)
