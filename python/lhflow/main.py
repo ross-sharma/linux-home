@@ -72,6 +72,11 @@ def main(args: list[str]):
         ensure_task_does_not_exist(task, tasks)
         tasks.append(task)
 
+    elif action == "delete":
+        index = int(args[2])
+        task = tasks.pop(index)
+        print(f"Task deleted: {task}")
+
     elif action == "reset":
         tasks = []
 
