@@ -1,3 +1,7 @@
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+
 " [PLUGINS]
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -9,6 +13,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'dense-analysis/ale'
 Plugin 'mgedmin/python-imports.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on    " required
 
@@ -60,9 +65,6 @@ set incsearch
 set cmdheight=2
 
 " Use persistent undo history
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
-endif
 if !isdirectory($HOME."/.vim/undo-dir")
     call mkdir($HOME."/.vim/undo-dir", "", 0700)
 endif

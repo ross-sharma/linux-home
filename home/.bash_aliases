@@ -29,3 +29,6 @@ alias vrc='vim ~/.vimrc'
 
 echo '.bash_aliases finished.'
 
+can-install() { 
+     $1 2>&1 | `tail -n 1`
+}
