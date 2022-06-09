@@ -33,8 +33,11 @@ alias vba='vim ~/.bash_aliases'
 alias sba='source ~/.bash_aliases'
 alias vrc='vim ~/.vimrc'
 
-echo '.bash_aliases finished.'
+alias check='echo $?'
 
 can-install() {
-$1 2>&1 | `tail -n 1`
+    $1 2>&1 | `tail -n 1`
 }
+
+echo '.bash_aliases finished.'
+
