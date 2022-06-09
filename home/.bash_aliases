@@ -1,4 +1,4 @@
-no_untracked_files() {
+_no_untracked_files() {
     result=$(git status | grep '^Untracked files' | wc -l)
     [ $result -gt 0 ] &&  echo "Untracked files found."
     return $result
@@ -6,14 +6,14 @@ no_untracked_files() {
 
 
 
-alias green='no_untracked_files && git commit -am green && git status'
-alias yellow='no_untracked_files && git commit -am yellow && git status'
-alias red='no_untracked_files && git commit -am red && git status'
+alias green='_no_untracked_files && git commit -am green && git status'
+alias yellow='_no_untracked_files && git commit -am yellow && git status'
+alias red='_no_untracked_files && git commit -am red && git status'
 
 alias gp='git push'
 alias gs='git status'
 alias ga='git add * && git status'
-alias gc='no_untracked_files && git commit -m'
+alias gc='_no_untracked_files && git commit -m'
 
 alias env-obdev='source $DEV_ROOT/obdev/scripts/setenv'
 alias env-lh='source $LH_ROOT/scripts/setenv'
