@@ -71,11 +71,13 @@ def main(args: list[str]):
         task = " ".join(args[2:])
         ensure_task_does_not_exist(task, tasks)
         tasks = tasks[:1] + [task] + tasks[1:]
+        print(f"Task slipped: {task}")
 
     elif action == "append":
         task = " ".join(args[2:])
         ensure_task_does_not_exist(task, tasks)
         tasks.append(task)
+        print(f"Task appended: {task}")
 
     elif action == "delete":
         index = int(args[2])

@@ -1,7 +1,9 @@
 _no_untracked_files() {
-    result=$(git status | grep '^Untracked files')
-    [ $result -ne 0 ] &&  echo "Untracked files found."
-    return $result
+    git status | 
+      grep '^Untracked files'   &&
+      echo "Untracked files found." &&
+      return 1
+    return 0
 }
 
 
@@ -12,14 +14,10 @@ _commit() {
 }
 
 
-alias green='_no_untracked_files && git commit -am green && git status'
-alias yellow='_no_untracked_files && git commit -am yellow && git status'
-alias red='_no_untracked_files && git commit -am red && git status'
-
 alias gp='git push'
 alias gs='git status'
 alias ga='git add * && git status'
-alias gc='commit'
+alias gc='_commit'
 
 alias env-obdev='source $DEV_ROOT/obdev/scripts/setenv'
 alias env-lh='source $LH_ROOT/scripts/setenv'
@@ -35,9 +33,6 @@ alias vrc='vim ~/.vimrc'
 
 alias check='echo $?'
 
-can-install() {
-    $1 2>&1 | `tail -n 1`
-}
 
 echo '.bash_aliases finished.'
 
