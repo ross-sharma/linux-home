@@ -23,6 +23,7 @@ let g:ale_set_highlights = 0
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#show_call_signatures = "2"
 
 " [KEYMAPS]
 nnoremap <F1> :!flow<CR>

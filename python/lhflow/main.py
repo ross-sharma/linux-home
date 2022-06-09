@@ -32,7 +32,7 @@ def get_active_task(tasks):
 
 def list_tasks(tasks: Tasks):
     if len(tasks) == 0:
-        print('There are no tasks.')
+        print("There are no tasks.")
     for count, task in enumerate(tasks):
         print(f"{count}. {task}")
 
@@ -49,7 +49,7 @@ def ensure_task_does_not_exist(task, tasks):
 
 def main(args: list[str]):
     tasks = load_tasks()
-    action = args[1] if len(args) > 1 else 'list'
+    action = args[1] if len(args) > 1 else "list"
     active_task = get_active_task(tasks)
 
     if action == "list":
@@ -71,7 +71,7 @@ def main(args: list[str]):
         task = " ".join(args[2:])
         ensure_task_does_not_exist(task, tasks)
         tasks = tasks[:1] + [task] + tasks[1:]
-        
+
     elif action == "append":
         task = " ".join(args[2:])
         ensure_task_does_not_exist(task, tasks)
