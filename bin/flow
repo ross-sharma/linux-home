@@ -1,4 +1,5 @@
 #!/bin/sh
 
-python -m lhflow.main $*
+
+python -m flow.main $*
 
