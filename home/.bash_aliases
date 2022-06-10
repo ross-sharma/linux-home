@@ -19,8 +19,9 @@ alias gs='git status'
 alias ga='git add * && git status'
 alias gc='_commit'
 
-alias env-obdev='source $DEV_ROOT/obdev/scripts/setenv'
+alias env-obdev='cd $DEV_ROOT/obdev && source scripts/setenv'
 alias env-lh='source $LH_ROOT/scripts/setenv'
+alias obtest='scripts/test'
 
 alias fl='flow list'
 alias fp='flow push'
