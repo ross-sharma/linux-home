@@ -20,6 +20,7 @@ alias ga='git add * && git status'
 alias gc='_commit'
 
 alias env-obdev='cd $DEV_ROOT/obdev && source scripts/setenv'
+alias env-webapp='cd $DEV_ROOT/webapp && source .obdev/setenv'
 alias env-lh='source $LH_ROOT/scripts/setenv'
 alias obtest='scripts/test'
 

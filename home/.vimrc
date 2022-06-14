@@ -14,6 +14,9 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'dense-analysis/ale'
 Plugin 'mgedmin/python-imports.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'neoclide/coc.vim'
+Plugin 'neoclide/coc-tsserver.vim'
+Plugin 'neoclide/coc-json.vim'
 call vundle#end()
 filetype plugin indent on    " required
 
