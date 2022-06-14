@@ -79,6 +79,12 @@ def main(args: list[str]):
         tasks.append(task)
         print(f"Task appended: {task}")
 
+    elif action == "move":
+        src, dest = int(args[2]), int(args[3])
+        task = tasks.pop(src)
+        tasks.insert(dest, task)
+        print(f"Task moved: {task}")
+
     elif action == "delete":
         index = int(args[2])
         task = tasks.pop(index)
