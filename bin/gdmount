@@ -1,0 +1,5 @@
+#!/bin/bash
+
+systemctl --user enable rclone@google-drive
+systemctl --user start rclone@google-drive
+
