@@ -34,3 +34,4 @@ pathmunge "$LH_ROOT/bin" "before"
 
 echo ".profile done"
 
+. "$HOME/.cargo/env"

@@ -16,8 +16,7 @@ _commit() {
 
 alias gp='git push'
 alias gs='git status'
-alias ga='git add * && git status'
-alias gc='_commit'
+alias gd='git diff'
 
 alias env-obdev='cd $DEV_ROOT/obdev && source scripts/setenv'
 alias env-webapp='cd $DEV_ROOT/webapp && source .obdev/setenv'
