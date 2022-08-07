@@ -114,4 +114,3 @@ export EDITOR="$VISUAL"
 
 echo ".bashrc done."
 
-. "$HOME/.cargo/env"

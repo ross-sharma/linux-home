@@ -3,30 +3,29 @@ if !isdirectory($HOME."/.vim")
 endif
 
 " [PLUGINS]
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-autoformat/vim-autoformat'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'dense-analysis/ale'
-Plugin 'mgedmin/python-imports.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'neoclide/coc.vim'
-Plugin 'neoclide/coc-tsserver.vim'
-Plugin 'neoclide/coc-json.vim'
-call vundle#end()
-filetype plugin indent on    " required
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_set_highlights = 0
-
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#show_call_signatures = "2"
+" set nocompatible              " be iMproved, required
+"filetype off                  " required
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'vim-autoformat/vim-autoformat'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'dense-analysis/ale'
+"Plugin 'mgedmin/python-imports.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'neoclide/coc.vim'
+"Plugin 'neoclide/coc-tsserver.vim'
+"Plugin 'neoclide/coc-json.vim'
+"call vundle#end()
+"filetype plugin indent on    " required
+"highlight clear ALEErrorSign
+"highlight clear ALEWarningSign
+"let g:ale_set_highlights = 0
+"
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#show_call_signatures = "2"
 
 " [KEYMAPS]
 nnoremap <F1> :!flow<CR>
@@ -67,6 +66,10 @@ set signcolumn=yes
 set updatetime=50
 set incsearch
 set cmdheight=2
+
+" Disable bell sound
+set visualbell
+set t_vb=
 
 " Use persistent undo history
 if !isdirectory($HOME."/.vim/undo-dir")
