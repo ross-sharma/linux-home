@@ -37,3 +37,5 @@ alias check='echo $?'
 
 echo '.bash_aliases finished.'
 
+
+
