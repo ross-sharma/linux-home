@@ -13,29 +13,24 @@ _commit() {
         git status
 }
 
+alias lsl='ls -al --color=auto'
 
+alias gc='git commit'
 alias gp='git push'
 alias gs='git status'
 alias gd='git diff'
-
-alias env-obdev='cd $DEV_ROOT/obdev && source scripts/setenv'
-alias env-webapp='cd $DEV_ROOT/webapp && source .obdev/setenv'
-alias env-lh='source $LH_ROOT/scripts/setenv'
-alias obtest='scripts/test'
-
-alias fl='flow list'
-alias fp='flow push'
-alias fa='flow append'
-
 alias lsa='ls -A --color=auto'
-alias vba='vim ~/.bash_aliases'
-alias sba='source ~/.bash_aliases'
-alias vrc='vim ~/.vimrc'
-
+alias lsal='ls -Al --color=auto'
 alias check='echo $?'
 
+DEV=/mnt/c/dev
 
+alias dev="cd $DEV"
+alias vg="cd $DEV/voterguide"
+alias vgvol="cd $DEV/voterguide/services/volunteers_frontend"
+alias vgpub="cd $DEV/voterguide/services/public_frontend"
+alias vgadm="cd $DEV/voterguide/services/public_admin"
+
+alias
 echo '.bash_aliases finished.'
-
-
 
