@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 import pickle
 
-taskfile = Path("/home/rsh/.tasks")
+taskfile = Path("/home/rosss/.tasks")
 Task = str
 Tasks = list[Task]
 
@@ -105,3 +105,4 @@ def main(args: list[str]):
 
 if __name__ == "__main__":
     main(sys.argv)
+

@@ -10,7 +10,7 @@ for b_line in sys.stdin.buffer.readlines():
     counter += 1
     tab = " " * 4
 
-    exc_class = line.title().replace("_", "").lstrip("Err") + "Exc"
+    exc_class = line.title().replace("_", "").removeprefix("Err") + "Exc"
     msg = line.lstrip("ERR_").lower().replace("_", " ")
     exit_code = counter
 

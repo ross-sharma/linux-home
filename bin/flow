@@ -1,5 +1,5 @@
 #!/bin/sh
 
 
-python -m flow.main $*
+python3 -m flow.main $*
 
