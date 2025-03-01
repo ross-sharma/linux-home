@@ -109,12 +109,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-#set -o vi
+set -o vi
 #export VISUAL=vim
 #export EDITOR="$VISUAL"
-export DEV=/mnt/c/dev
-
-cd $DEV
 echo ".bashrc done."
 
 
