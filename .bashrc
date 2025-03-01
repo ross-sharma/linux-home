@@ -110,8 +110,10 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 set -o vi
-#export VISUAL=vim
-#export EDITOR="$VISUAL"
+bind '"\C-l": clear-screen'
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 echo ".bashrc done."
 
 
