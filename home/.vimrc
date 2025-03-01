@@ -1,80 +1,92 @@
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
-endif
+let mapleader = " "
 
-" [PLUGINS]
-" set nocompatible              " be iMproved, required
-"filetype off                  " required
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-autoformat/vim-autoformat'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'dense-analysis/ale'
-"Plugin 'mgedmin/python-imports.vim'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'neoclide/coc.vim'
-"Plugin 'neoclide/coc-tsserver.vim'
-"Plugin 'neoclide/coc-json.vim'
-"call vundle#end()
-"filetype plugin indent on    " required
-"highlight clear ALEErrorSign
-"highlight clear ALEWarningSign
-"let g:ale_set_highlights = 0
-"
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#goto_definitions_command = "<leader>d"
-"let g:jedi#show_call_signatures = "2"
+" reload conf
+nnoremap <leader>R :w<cr>:source ~/.vimrc<cr>
 
-" [KEYMAPS]
-nnoremap <F1> :!flow<CR>
-nnoremap <F3> :Autoformat<CR>
-nnoremap <F4> <esc>:wq<cr>
-inoremap <F4> <esc>:wq<cr>
-nnoremap <F5> :source $MYVIMRC<CR>
-nnoremap <c-F5> :e $MYVIMRC<CR>
-nnoremap <c-s> <esc>:w<cr>
-inoremap <c-s> <esc>:w<cr>
-nnoremap <c-T> <esc>:terminal<cr>
+colorscheme industry
 
-inoremap <c-k> <up>
-inoremap <c-j> <down>
-inoremap <c-h> <left>
-inoremap <c-l> <right>
-
-
-" [APPEARANCE]
-syntax enable
-set background=dark
-" colorscheme solarized
-set t_Co=256
-
-
-" [PREFERENCES]
+"set incsearch
+"set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
 set number
-set relativenumber
+set rnu
 set tabstop=4
 set shiftwidth=4
-set expandtab
-set smartindent
-set autoindent
-set clipboard=unnamedplus
-set noswapfile
-set scrolloff=8
-set signcolumn=yes
-set updatetime=50
-set incsearch
-set cmdheight=2
+set clipboard+=unnamedplus
 
-" Disable bell sound
-set visualbell
-set t_vb=
 
-" Use persistent undo history
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-endif
-set undodir=~/.vim/undo-dir
-set undofile
+
+
+" Clear last search highlighting
+nnoremap <leader>h :nohlsearch<cr>
+
+" yank without moving the cursor in visual mode
+vmap y ygv<esc>
+
+" substitute within visual selection only
+vnoremap <leader>s :s/\%V
+
+" Select all
+nnoremap <leader>a m0ggVG
+
+" Buffer shortcuts
+nnoremap <leader>b :buffers!<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+nnoremap <leader>1 :b1<cr>
+nnoremap <leader>2 :b2<cr>
+nnoremap <leader>3 :b3<cr>
+nnoremap <leader>4 :b4<cr>
+nnoremap <leader>5 :b5<cr>
+nnoremap <leader>6 :b6<cr>
+nnoremap <leader>7 :b7<cr>
+nnoremap <leader>8 :b8<cr>
+nnoremap <leader>9 :b9<cr>
+
+" marks
+nnoremap <leader>m :marks<cr>
+
+" Rerun last terminal command
+nnoremap <leader>! :!<Up><cr>
+
+" Save
+nnoremap <C-s> :w<cr>
+
+
+
+
+" Run C file
+fun! CCompile() "{{{
+	return 'gcc -Wall -g ' .expand('%')
+endfunction
+"}}}
+
+fun! CRun( arg ) "{{{
+	write
+	let cmd = 'clear && ' .CCompile(). ' && ./a.out ' . a:arg
+	execute('!'.cmd)
+endfunction "}}}
+
+
+fun! CDebug( arg ) "{{{
+	write
+	let cmd = 'clear && ' .CCompile(). ' && gdb'
+	\.' -ex "lay src"'
+	\.' -ex "break '.line('.').'"'
+	\.' -ex run --args a.out ' . a:arg
+	execute('!'.cmd)
+endfunction "}}}
+
+
+fun! Test() "{{{
+	let x = line('.')
+	echo x
+endfunction "}}}
+
+
+command! -nargs=* CRun call CRun( '<args>' )
+command! -nargs=* CDebug call CDebug( '<args>' )
+command!  Test call Test()
 
