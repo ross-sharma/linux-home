@@ -1,7 +1,0 @@
-#!/bin/bash
-
-lhunlink
-
-cd ~ &&
-    find "/home/rs/dev/linux-home/home" | tail -n +2 |  xargs -n 1 ln -sv
-
