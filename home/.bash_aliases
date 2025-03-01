@@ -22,15 +22,5 @@ alias gd='git diff'
 alias lsa='ls -A --color=auto'
 alias lsal='ls -Al --color=auto'
 alias check='echo $?'
-
-DEV=/mnt/c/dev
-
-alias dev="cd $DEV"
-alias vg="cd $DEV/voterguide"
-alias vgvol="cd $DEV/voterguide/services/volunteers_frontend"
-alias vgpub="cd $DEV/voterguide/services/public_frontend"
-alias vgadm="cd $DEV/voterguide/services/public_admin"
-
 alias
-echo '.bash_aliases finished.'
 
