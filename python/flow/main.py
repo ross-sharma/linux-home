@@ -1,25 +1,13 @@
 import sys
 from pathlib import Path
 import pickle
+import os
 
-taskfile = Path("/home/rosss/.tasks")
 Task = str
 Tasks = list[Task]
 
 
-def load_tasks() -> Tasks:
-    try:
-        if not taskfile.is_file():
-            save_tasks([])
-
-        with open(taskfile, "rb") as f:
-            return pickle.load(f)
-    except Exception as e:
-        print(f"Warning: Unable to load tasks ({e})")
-        return []
-
-
-def save_tasks(tasks: Tasks):
+def save_tasks(tasks: Tasks, taskfile: Path):
     with open(taskfile, "wb") as f:
         pickle.dump(tasks, f)
 
@@ -32,7 +20,7 @@ def get_active_task(tasks):
 
 def list_tasks(tasks: Tasks):
     if len(tasks) == 0:
-        print("There are no tasks.")
+        print("Task list is empty.")
     for count, task in enumerate(tasks):
         print(f"{count}. {task}")
 
@@ -42,13 +30,36 @@ def print_active_task(tasks: Tasks):
     print(f"The active task is now '{task}'")
 
 
-def ensure_task_does_not_exist(task, tasks):
+def ensure_valid_task(task, tasks):
+    if not task.strip():
+        print("Task cannot be blank")
+        sys.exit(1)
     if task in tasks:
-        raise Exception("Task already exists")
+        print("Task already exists")
+        sys.exit(1)
 
 
 def main(args: list[str]):
-    tasks = load_tasks()
+    envkey = "FLOW_FILE"
+    _path = os.environ.get(envkey)
+    if not _path:
+        print(f"Environment variable {envkey} must be set.")
+        sys.exit(1)
+
+    taskfile = Path(_path)
+
+    if not taskfile.is_file():
+        resp = input(f"File {_path} does not exist. Create? [y/n] ")
+        if resp.lower().strip() == "y":
+            print(f"Creating file {_path}")
+            save_tasks([])
+        else:
+            print("Exiting")
+            sys.exit(0)
+            
+    with open(taskfile, "rb") as f:
+        tasks = pickle.load(f)
+
     action = args[1] if len(args) > 1 else "list"
     active_task = get_active_task(tasks)
 
@@ -64,18 +75,18 @@ def main(args: list[str]):
 
     elif action == "push":
         task = " ".join(args[2:])
-        ensure_task_does_not_exist(task, tasks)
+        ensure_valid_task(task, tasks)
         tasks = [task] + tasks
 
     elif action == "slip":
         task = " ".join(args[2:])
-        ensure_task_does_not_exist(task, tasks)
+        ensure_valid_task(task, tasks)
         tasks = tasks[:1] + [task] + tasks[1:]
         print(f"Task slipped: {task}")
 
     elif action == "append":
         task = " ".join(args[2:])
-        ensure_task_does_not_exist(task, tasks)
+        ensure_valid_task(task, tasks)
         tasks.append(task)
         print(f"Task appended: {task}")
 
@@ -91,7 +102,8 @@ def main(args: list[str]):
         print(f"Task deleted: {task}")
 
     elif action == "reset":
-        tasks = []
+        if "y" == input("Are you sure? y/n: ").strip().lower():
+            tasks = []
 
     else:
         print(f"Unrecognized action: {action}")
@@ -100,7 +112,7 @@ def main(args: list[str]):
     if task != active_task:
         print(f"The active task is now: {task}")
 
-    save_tasks(tasks)
+    save_tasks(tasks, taskfile)
 
 
 if __name__ == "__main__":
