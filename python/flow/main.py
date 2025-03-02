@@ -52,7 +52,7 @@ def main(args: list[str]):
         resp = input(f"File {_path} does not exist. Create? [y/n] ")
         if resp.lower().strip() == "y":
             print(f"Creating file {_path}")
-            save_tasks([])
+            save_tasks([], taskfile)
         else:
             print("Exiting")
             sys.exit(0)
