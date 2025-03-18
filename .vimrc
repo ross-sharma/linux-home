@@ -4,7 +4,6 @@ let mapleader = " "
 nnoremap <leader>R :w<cr>:source ~/.vimrc<cr>
 
 colorscheme industry
-
 "set incsearch
 "set hlsearch
 set ignorecase
@@ -15,7 +14,6 @@ set rnu
 set tabstop=4
 set shiftwidth=4
 set clipboard+=unnamedplus
-
 
 
 
@@ -53,8 +51,13 @@ nnoremap <leader>! :!<Up><cr>
 
 " Save
 nnoremap <C-s> :w<cr>
+inoremap <C-s> <esc>:w<cr>
 
-
+" Paste from 0 register
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>p "0p
+vnoremap <leader>P "0P
 
 
 " Run C file
@@ -66,7 +69,7 @@ endfunction
 fun! CRun( arg ) "{{{
 	write
 	let cmd = 'clear && ' .CCompile(). ' && ./a.out ' . a:arg
-	execute('!'.cmd)
+	call feedkeys(':!' . cmd, 'n')
 endfunction "}}}
 
 
@@ -76,17 +79,17 @@ fun! CDebug( arg ) "{{{
 	\.' -ex "lay src"'
 	\.' -ex "break '.line('.').'"'
 	\.' -ex run --args a.out ' . a:arg
-	execute('!'.cmd)
+	call feedkeys(':!' . cmd, 'n')
 endfunction "}}}
 
 
 fun! Test() "{{{
-	let x = line('.')
-	echo x
+	call feedkeys(':hello')
 endfunction "}}}
 
 
-command! -nargs=* CRun call CRun( '<args>' )
-command! -nargs=* CDebug call CDebug( '<args>' )
+command! -nargs=* Crun call CRun( '<args>' )
+command! -nargs=* Cdbg call CDebug( '<args>' )
 command!  Test call Test()
 
+echo "vimrc loaded"
