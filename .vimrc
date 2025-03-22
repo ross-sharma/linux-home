@@ -15,8 +15,6 @@ set tabstop=4
 set shiftwidth=4
 set clipboard+=unnamedplus
 
-
-
 " Clear last search highlighting
 nnoremap <leader>h :nohlsearch<cr>
 
@@ -32,7 +30,7 @@ nnoremap <leader>a m0ggVG
 " Buffer shortcuts
 nnoremap <leader>b :buffers!<cr>
 nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
+nnoremap <leader>N :bp<cr>
 nnoremap <leader>1 :b1<cr>
 nnoremap <leader>2 :b2<cr>
 nnoremap <leader>3 :b3<cr>
@@ -46,8 +44,8 @@ nnoremap <leader>9 :b9<cr>
 " marks
 nnoremap <leader>m :marks<cr>
 
-" Rerun last terminal command
-nnoremap <leader>! :!<Up><cr>
+" Save and rerun last terminal command
+nnoremap <leader>! :w<cr>:!<Up><cr>
 
 " Save
 nnoremap <C-s> :w<cr>
@@ -59,6 +57,9 @@ nnoremap <leader>P "0P
 vnoremap <leader>p "0p
 vnoremap <leader>P "0P
 
+
+" Enter visual block mode
+command! Vb normal! <C-v>
 
 " Run C file
 fun! CCompile() "{{{
@@ -93,3 +94,5 @@ command! -nargs=* Cdbg call CDebug( '<args>' )
 command!  Test call Test()
 
 echo "vimrc loaded"
+
+
