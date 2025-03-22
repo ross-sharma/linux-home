@@ -15,14 +15,31 @@ set tabstop=4
 set shiftwidth=4
 set clipboard+=unnamedplus
 
+
+" Save with Ctrl-s
+nnoremap <C-s> :w<cr>
+inoremap <C-s> <esc>:w<cr>
+
+" Save and rerun last terminal command
+nnoremap <leader>! :w<cr>:!<Up><cr>
+
 " Clear last search highlighting
 nnoremap <leader>h :nohlsearch<cr>
 
+" Paste from 0 register
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>p "0p
+vnoremap <leader>P "0P
+
 " yank without moving the cursor in visual mode
-vmap y ygv<esc>
+vmap y ygv<esc> " yank without moving the cursor in visual mode
 
 " substitute within visual selection only
 vnoremap <leader>s :s/\%V
+
+" Enter visual block mode
+command! Vb normal! <C-v>
 
 " Select all
 nnoremap <leader>a m0ggVG
@@ -44,22 +61,7 @@ nnoremap <leader>9 :b9<cr>
 " marks
 nnoremap <leader>m :marks<cr>
 
-" Save and rerun last terminal command
-nnoremap <leader>! :w<cr>:!<Up><cr>
 
-" Save
-nnoremap <C-s> :w<cr>
-inoremap <C-s> <esc>:w<cr>
-
-" Paste from 0 register
-nnoremap <leader>p "0p
-nnoremap <leader>P "0P
-vnoremap <leader>p "0p
-vnoremap <leader>P "0P
-
-
-" Enter visual block mode
-command! Vb normal! <C-v>
 
 " Run C file
 fun! CCompile() "{{{
