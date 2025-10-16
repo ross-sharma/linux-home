@@ -11,9 +11,11 @@ set smartcase
 set wrapscan
 set number
 set rnu
-set tabstop=4
-set shiftwidth=4
 set clipboard+=unnamedplus
+set expandtab      " Convert tabs to spaces
+set tabstop=4      " Show a tab as 4 spaces (visual width)
+set shiftwidth=4   " Indent by 4 spaces when auto-indenting
+set softtabstop=4  " Insert/delete 4 spaces when pressing Tab/Backspace
 
 
 " Save with Ctrl-s
@@ -33,7 +35,7 @@ vnoremap <leader>p "0p
 vnoremap <leader>P "0P
 
 " yank without moving the cursor in visual mode
-vmap y ygv<esc> " yank without moving the cursor in visual mode
+vmap y ygv<esc> 
 
 " substitute within visual selection only
 vnoremap <leader>s :s/\%V
@@ -94,7 +96,4 @@ endfunction "}}}
 command! -nargs=* Crun call CRun( '<args>' )
 command! -nargs=* Cdbg call CDebug( '<args>' )
 command!  Test call Test()
-
-echo "vimrc loaded"
-
 
