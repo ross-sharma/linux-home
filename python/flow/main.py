@@ -101,7 +101,7 @@ def main(args: list[str]):
         task = tasks.pop(index)
         print(f"Task deleted: {task}")
 
-    elif action == "reset":
+    elif action == "clear":
         if "y" == input("Are you sure? y/n: ").strip().lower():
             tasks = []
 
