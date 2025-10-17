@@ -11,7 +11,7 @@ set smartcase
 set wrapscan
 set number
 set rnu
-set clipboard+=unnamedplus
+set clipboard=unnamed
 set expandtab      " Convert tabs to spaces
 set tabstop=4      " Show a tab as 4 spaces (visual width)
 set shiftwidth=4   " Indent by 4 spaces when auto-indenting
@@ -20,7 +20,7 @@ set softtabstop=4  " Insert/delete 4 spaces when pressing Tab/Backspace
 
 " Save with Ctrl-s
 nnoremap <C-s> :w<cr>
-inoremap <C-s> <esc>:w<cr>
+inoremap <C-s> <esc>:w<cr>li
 
 " Save and rerun last terminal command
 nnoremap <leader>! :w<cr>:!<Up><cr>
@@ -29,10 +29,16 @@ nnoremap <leader>! :w<cr>:!<Up><cr>
 nnoremap <leader>h :nohlsearch<cr>
 
 " Paste from 0 register
-nnoremap <leader>p "0p
-nnoremap <leader>P "0P
-vnoremap <leader>p "0p
-vnoremap <leader>P "0P
+nnoremap <leader>o "0p
+nnoremap <leader>O "0P
+vnoremap <leader>o "0p
+vnoremap <leader>O "0P
+
+" Yank/Paste to system clipboard
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 " yank without moving the cursor in visual mode
 vmap y ygv<esc> 
